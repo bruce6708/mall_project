@@ -8,7 +8,7 @@ import java.util.List;
 public interface BrandMapper {
     int deleteByPrimaryKey(Long id);
 
-    int insert(TbBrand record);
+    void insert(TbBrand record);
 
     TbBrand selectByPrimaryKey(Long id);
 

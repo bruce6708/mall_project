@@ -21,8 +21,8 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public int insert(TbBrand record) {
-        return brandMapper.insert(record);
+    public void insert(TbBrand record) {
+         brandMapper.insert(record);
     }
 
     @Override

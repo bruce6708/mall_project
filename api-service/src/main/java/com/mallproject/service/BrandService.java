@@ -10,7 +10,7 @@ import java.util.List;
 public interface BrandService {
     public int deleteByPrimaryKey(Long id);
 
-    public int insert(TbBrand record);
+    public void insert(TbBrand record);
 
     public TbBrand selectByPrimaryKey(Long id);
 

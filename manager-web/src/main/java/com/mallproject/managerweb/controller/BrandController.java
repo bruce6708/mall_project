@@ -2,11 +2,13 @@ package com.mallproject.managerweb.controller;
 
 
 import com.mallproject.common.entity.PageResult;
+import com.mallproject.common.entity.Result;
 import com.mallproject.managerweb.domain.TbBrand;
 import com.mallproject.service.BrandService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,10 +35,16 @@ public class BrandController {
         return brandService.selectPage(pageNum,pageSize);
     }
 
-    @RequestMapping("/addBrand")
+    @RequestMapping("/add")
     @ApiOperation(value="增加品牌", notes="添加品牌")
-    public int addBrand(TbBrand record){
-        return brandService.insert(record);
+    public Result addBrand(@RequestBody TbBrand record){
+        try {
+            brandService.insert(record);
+            return new Result(true,"增加成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"增加失败");
+        }
     }
 
     @RequestMapping("/deleteBrand")
