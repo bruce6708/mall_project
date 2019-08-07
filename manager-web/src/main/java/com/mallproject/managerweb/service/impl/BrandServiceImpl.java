@@ -16,8 +16,11 @@ public class BrandServiceImpl implements BrandService {
     @Resource
     private BrandMapper brandMapper;
     @Override
-    public int deleteByPrimaryKey(Long id) {
-        return brandMapper.deleteByPrimaryKey(id);
+    public void deleteByPrimaryKey(Long[] ids) {
+        for(Long id:ids){
+            brandMapper.deleteByPrimaryKey(id);
+        }
+
     }
 
     @Override
@@ -43,7 +46,7 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public int updateByPrimaryKey(TbBrand record) {
-        return brandMapper.updateByPrimaryKey(record);
+    public void updateByPrimaryKey(TbBrand record) {
+         brandMapper.updateByPrimaryKey(record);
     }
 }

@@ -8,10 +8,20 @@ import java.util.List;
  * 品牌接口
  */
 public interface BrandService {
-    public int deleteByPrimaryKey(Long id);
 
+    public void deleteByPrimaryKey(Long[] ids);
+
+    /**
+     * 增加品牌
+     * @param record
+     */
     public void insert(TbBrand record);
 
+    /**
+     * 根据ID查询
+     * @param id
+     * @return
+     */
     public TbBrand selectByPrimaryKey(Long id);
 
     public    List<TbBrand> selectAll();      //品牌列表
@@ -24,5 +34,5 @@ public interface BrandService {
      */
     public PageResult selectPage(int pageNum,int pageSize);
 
-    public  int updateByPrimaryKey(TbBrand record);
+    public  void updateByPrimaryKey(TbBrand record);
 }

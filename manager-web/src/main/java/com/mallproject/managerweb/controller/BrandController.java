@@ -46,11 +46,30 @@ public class BrandController {
             return new Result(false,"增加失败");
         }
     }
-
-    @RequestMapping("/deleteBrand")
+    @RequestMapping("/update")
+    public Result update(@RequestBody TbBrand brand){
+        try {
+            brandService.updateByPrimaryKey(brand);
+            return new Result(true,"修改成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"修改失败");
+        }
+    }
+    @RequestMapping("selectById")
+    public TbBrand selectById(Long id){
+        return brandService.selectByPrimaryKey(id);
+    }
+    @RequestMapping("/delete")
     @ApiOperation(value="删除品牌", notes="删除品牌")
-    public int deleteBrand(long id){
-        return brandService.deleteByPrimaryKey(id);
+    public Result deleteBrand(Long[] ids){
+        try {
+            brandService.deleteByPrimaryKey(ids);
+            return new Result(true,"删除成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"删除失败");
+        }
     }
 
 
