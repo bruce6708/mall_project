@@ -8,7 +8,10 @@ import java.util.List;
  * 品牌接口
  */
 public interface BrandService {
-
+    /**
+     * 删除
+     * @param ids
+     */
     public void deleteByPrimaryKey(Long[] ids);
 
     /**
